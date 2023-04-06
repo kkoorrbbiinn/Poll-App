@@ -16,6 +16,9 @@ class Poll(models.Model):
 
     def __str__(self):
         return f'{self.question}: ({self.choice_one}, {self.choice_two}, {self.choice_three})'
+    
+    def get_absolute_url(self):
+        return reverse('polls_detail', kwargs={'poll_id': self.id})
 
 class Event(models.Model):
     name = models.CharField(max_length=100)

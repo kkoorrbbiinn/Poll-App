@@ -126,21 +126,16 @@ def signup(request):
 class PollCreate(CreateView):
     model = Poll
     fields = ['question', 'choice_one', 'choice_two', 'choice_three']
-    success_url = '/polls_detail/'
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
+    # def form_valid(self, form):
+    #     form.instance.user = self.request.user
+    #     return super().form_valid(form)
     
-    def assoc_poll(request, event_id, poll_id):
-        Event.objects.get(id=event_id).polls.add(poll_id)
-        return redirect('home')
-        # delete line above and uncomment line below to redirect to events details page once created
-        # return redirect('detail', event_id=event_id)
+
      
 class PollDetail(DetailView):
     model = Poll
-
+    success_url = '/polls/'
 class PollUpdate(UpdateView):
     model = Poll
     fields = '__all__'

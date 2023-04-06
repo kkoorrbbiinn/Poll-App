@@ -23,6 +23,6 @@ urlpatterns = [
     path('groups/<int:pk>/delete/',
          views.GroupDelete.as_view(), name='groups_delete'),
     path('accounts/signup/', views.signup, name='signup'),
-    path('polls/', views.PollDetail.as_view(), name='polls_detail'),
+    path('polls/<int:pk>/', views.PollDetail.as_view(), name='polls_detail'),
     path('polls/create/', views.PollCreate.as_view(), name='polls_create'),
 ]
